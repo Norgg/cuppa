@@ -59,6 +59,8 @@ public class Teabag : MonoBehaviour {
                 moveState = MoveState.MoveIntoMug;
                 controller.pickedTeabag = null;
                 controller.workingMug.hasTeabag = true;
+                controller.workingMug.SetCrossSection(true);
+                transform.parent = controller.workingMug.transform;
             }
         }
     }

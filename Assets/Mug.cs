@@ -11,6 +11,7 @@ public class Mug : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<Controller>();
+        startingMesh = GetComponent<MeshFilter>().mesh;
 	}
 
     enum MoveState
@@ -120,6 +121,22 @@ public class Mug : MonoBehaviour {
         {
             Debug.Log("Stopped colliding with a slot");
             slot = null;
+        }
+    }
+
+    public Mesh cutoutMesh;
+
+    Mesh startingMesh;
+
+    public void SetCrossSection(bool yes)
+    {
+        if (yes)
+        {
+            GetComponent<MeshFilter>().mesh = cutoutMesh;
+        }
+        else
+        {
+            GetComponent<MeshFilter>().mesh = startingMesh;
         }
     }
 }
