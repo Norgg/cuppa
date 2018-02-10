@@ -311,7 +311,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2012831890
+  randomSeed: -1182964802
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4158,6 +4158,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 64787751857879882, guid: 006e5cb916cc74b4797c4ec2d35d97b4,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300002, guid: 78538dcef1ab9e446ba6eb39d31ced9d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 006e5cb916cc74b4797c4ec2d35d97b4, type: 2}
   m_IsPrefabParent: 0
@@ -4431,6 +4436,12 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1665977706 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114491308805406690, guid: 006e5cb916cc74b4797c4ec2d35d97b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 926137336}
+  m_Script: {fileID: 11500000, guid: ee1350c61ee3dfb49a245b1af53f875c, type: 3}
 --- !u!1 &1710868571
 GameObject:
   m_ObjectHideFlags: 0
@@ -4718,3 +4729,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickedMug: {fileID: 0}
+  workingMug: {fileID: 0}
+  workingMugSlot: {fileID: 832713551}
+  kettle: {fileID: 1665977706}

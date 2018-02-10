@@ -5,14 +5,9 @@ using UnityEngine;
 public class Controller : MonoBehaviour {
 
     public Mug pickedMug;
+    public Mug workingMug;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject workingMugSlot;
+
+    public Kettle kettle;
 }

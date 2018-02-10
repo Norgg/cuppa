@@ -15,6 +15,16 @@ public class Kettle : MonoBehaviour {
 
     float secondsBoiling = 0;
 
+    public bool IsReady { get { return waterState == WaterState.Ready; } }
+
+    Controller controller;
+
+    // Use this for initialization
+    void Start()
+    {
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<Controller>();
+    }
+
     private void Update()
     {
         if (waterState == WaterState.Boiling)
@@ -31,7 +41,11 @@ public class Kettle : MonoBehaviour {
     {
         Debug.Log("Clicked the kettle");
 
-        if (waterState == WaterState.Cold)
+        if (IsReady)
+        {
+            // do the pick up thing?
+        }
+        else if (waterState == WaterState.Cold)
         {
             waterState = WaterState.Boiling;
             GetComponent<AudioSource>().Play();
