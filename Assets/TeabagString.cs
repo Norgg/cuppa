@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TeabagString : MonoBehaviour {
 
-	public GameObject bag;
-	public GameObject tag;
+	public GameObject bagbag;
+	public GameObject bagtag;
 	LineRenderer line;
 
 	void Start() {
@@ -13,7 +13,7 @@ public class TeabagString : MonoBehaviour {
 	}
 	
 	void Update() {
-		line.SetPosition(0, bag.transform.position + bag.transform.forward * transform.localScale.y );
-		line.SetPosition(1, tag.transform.position - tag.transform.forward * transform.localScale.y / 3);
+		line.SetPosition(0, bagbag.transform.position + bagbag.transform.forward * transform.localScale.y );
+		line.SetPosition(1, bagtag.transform.position - bagtag.transform.forward * transform.localScale.y / 3);
 	}
 }
