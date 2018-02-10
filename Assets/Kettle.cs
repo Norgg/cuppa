@@ -11,11 +11,19 @@ public class Kettle : MonoBehaviour {
 
     WaterState waterState = WaterState.Cold;
 
+    public float secondsToBoil = 45;
+
+    float secondsBoiling = 0;
+
     private void Update()
     {
         if (waterState == WaterState.Boiling)
         {
-
+            secondsBoiling += Time.deltaTime;
+            if (secondsBoiling >= secondsToBoil)
+            {
+                waterState = WaterState.Ready;
+            }
         }
     }
 
@@ -27,6 +35,7 @@ public class Kettle : MonoBehaviour {
         {
             waterState = WaterState.Boiling;
             GetComponent<AudioSource>().Play();
+            GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 }
