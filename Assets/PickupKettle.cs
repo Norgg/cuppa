@@ -10,6 +10,8 @@ public class PickupKettle : MonoBehaviour {
     public GameObject pourTarget;
     public ParticleSystem waterParticles;
 
+    Vector3 startPos;
+
 	// Use this for initialization
 	void Start () {
         startRotation = transform.rotation;
@@ -21,7 +23,8 @@ public class PickupKettle : MonoBehaviour {
     {
         Resting,
         PickingUp,
-        FollowMouse
+        FollowMouse,
+        PuttingBack
     };
 
     MoveState moveState = MoveState.Resting;
@@ -62,6 +65,7 @@ public class PickupKettle : MonoBehaviour {
             if (rotationAmount > 0) {
                 if (!waterParticles.isPlaying) {
                     waterParticles.Play();
+                    controller.workingMug.Fill();
                 }
             } else {
                 waterParticles.Stop();
@@ -71,6 +75,23 @@ public class PickupKettle : MonoBehaviour {
 
             transform.position = worldPosition;
             transform.rotation = Quaternion.Slerp(transform.rotation, tipRotation, 0.1f);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                moveState = MoveState.PuttingBack;
+            }
+        }
+        else if (moveState == MoveState.PuttingBack)
+        {
+            transform.position = Vector3.Lerp(transform.position, startPos, 0.2f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, startRotation, 0.5f);
+
+            if (Vector3.Distance(transform.position, startPos) < 0.05f)
+            {
+                moveState = MoveState.Resting;
+                waterParticles.Stop();
+                transform.rotation = startRotation;
+            }
         }
     }
 
@@ -78,6 +99,7 @@ public class PickupKettle : MonoBehaviour {
     {
         if (moveState != MoveState.FollowMouse && kettle.IsReady)
         {
+            startPos = transform.position;
             moveState = MoveState.PickingUp;
             if (slot)
             {

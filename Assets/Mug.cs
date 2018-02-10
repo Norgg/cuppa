@@ -8,10 +8,14 @@ public class Mug : MonoBehaviour {
 
     public bool hasTeabag = false;
 
+    GameObject liquid;
+
 	// Use this for initialization
 	void Start () {
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<Controller>();
         startingMesh = GetComponent<MeshFilter>().mesh;
+        liquid = transform.Find("liquid").gameObject;
+        liquid.SetActive(false);
 	}
 
     enum MoveState
@@ -22,6 +26,12 @@ public class Mug : MonoBehaviour {
     };
 
     MoveState moveState = MoveState.MoveToSlot;
+
+    public void Fill()
+    {
+        liquid.SetActive(true);
+        SetCrossSection(true);
+    }
 
 	// Update is called once per frame
 	void Update () {
