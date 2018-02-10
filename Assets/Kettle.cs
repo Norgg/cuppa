@@ -39,6 +39,8 @@ public class Kettle : MonoBehaviour {
 
     void OnMouseDown()
     {
+        if (controller.pickedMug != null) return;
+
         Debug.Log("Clicked the kettle");
 
         if (IsReady)
