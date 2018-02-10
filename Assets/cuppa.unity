@@ -147,7 +147,7 @@ Transform:
   - {fileID: 832713552}
   - {fileID: 599998714}
   - {fileID: 337219474}
-  - {fileID: 648923456}
+  - {fileID: 183538643}
   - {fileID: 1333401374}
   - {fileID: 1986434856}
   - {fileID: 1288092379}
@@ -161,7 +161,6 @@ Transform:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 78538dcef1ab9e446ba6eb39d31ced9d, type: 3}
-<<<<<<< HEAD
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 593822296}
   m_LocalRotation: {x: -0.024472669, y: -0.99970055, z: -0.00000011920929, w: 0.00000011920929}
@@ -171,17 +170,6 @@ Transform:
   m_Father: {fileID: 178518780}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -180, y: -0.000015258789, z: -177.195}
-=======
-  m_PrefabInternal: {fileID: 1355194551}
-  m_GameObject: {fileID: 1499282896}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 648923456}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> 7b723bfe652a6cf109a3dcd014f47fb522ad105a
 --- !u!4 &201691735 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4945689060623446, guid: 36c231c3609c4d547a353350bf3225ed,
@@ -415,11 +403,6 @@ Prefab:
       propertyPath: m_Name
       value: mug (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 23989272988690550, guid: 36c231c3609c4d547a353350bf3225ed,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8602070b901ee8744a0fb3cb29efd7ec, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36c231c3609c4d547a353350bf3225ed, type: 2}
   m_IsPrefabParent: 0
@@ -530,35 +513,6 @@ Transform:
   - {fileID: 1463516707}
   m_Father: {fileID: 178518780}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &648923455
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1355194551}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 648923456}
-  m_Layer: 0
-  m_Name: Missing Prefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &648923456
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1355194551}
-  m_GameObject: {fileID: 648923455}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 183538643}
-  m_Father: {fileID: 178518780}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &668575538
 GameObject:
@@ -740,11 +694,6 @@ Prefab:
       propertyPath: m_Name
       value: mug (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 23989272988690550, guid: 36c231c3609c4d547a353350bf3225ed,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8602070b901ee8744a0fb3cb29efd7ec, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36c231c3609c4d547a353350bf3225ed, type: 2}
   m_IsPrefabParent: 0
@@ -885,21 +834,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1463516706}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1499282896
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1355194551}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 183538643}
-  m_Layer: 0
-  m_Name: Missing Prefab (Dummy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1618549643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,11 +1022,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 23989272988690550, guid: 36c231c3609c4d547a353350bf3225ed,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8602070b901ee8744a0fb3cb29efd7ec, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36c231c3609c4d547a353350bf3225ed, type: 2}
   m_IsPrefabParent: 0
