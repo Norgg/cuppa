@@ -10,4 +10,6 @@ public class Controller : MonoBehaviour {
     public GameObject workingMugSlot;
 
     public Kettle kettle;
+
+    public Teabag pickedTeabag;
 }

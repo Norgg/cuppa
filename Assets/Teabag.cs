@@ -13,12 +13,13 @@ public class Teabag : MonoBehaviour {
 
     enum MoveState
     {
-        MoveToSlot,
+        None,
+        MoveIntoMug,
         PickingUp,
         FollowMouse
     };
 
-    MoveState moveState = MoveState.MoveToSlot;
+    MoveState moveState = MoveState.None;
 
 	// Update is called once per frame
 	void Update () {
@@ -29,9 +30,6 @@ public class Teabag : MonoBehaviour {
             var worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
             transform.position = worldPosition;
-            /*transform.SetPositionAndRotation(
-                Vector3.Lerp(transform.position, worldPosition, 0.2f),
-                transform.rotation);*/
             Debug.Log("Moving");
 
             if (Vector3.Distance(transform.position, worldPosition) < 0.1f)
@@ -39,15 +37,13 @@ public class Teabag : MonoBehaviour {
                 moveState = MoveState.FollowMouse;
             }
         }
-        else if (
-            moveState == MoveState.MoveToSlot &&
-            slot != null)
+        else if (moveState == MoveState.MoveIntoMug)
         {
-            transform.SetPositionAndRotation(
-                Vector3.Lerp(transform.position, slot.transform.position, 0.2f),
-                transform.rotation);
-
-            slot.GetComponent<Collider>().enabled = false;
+            transform.position = 
+                Vector3.Lerp(
+                    transform.position, 
+                    controller.workingMug.transform.position, 
+                    0.2f);
         }
         else if (moveState == MoveState.FollowMouse)
         {
@@ -57,11 +53,12 @@ public class Teabag : MonoBehaviour {
 
             transform.SetPositionAndRotation(worldPosition, transform.rotation);
 
-            if (Input.GetMouseButtonDown(0) && slot)
+            if (Input.GetMouseButtonDown(0) && readyToDrop)
             {
                 Debug.Log("Putting bag down");
-                controller.pickedMug = null;
-                moveState = MoveState.MoveToSlot;
+                moveState = MoveState.MoveIntoMug;
+                controller.pickedTeabag = null;
+                controller.workingMug.hasTeabag = true;
             }
         }
     }
@@ -71,38 +68,28 @@ public class Teabag : MonoBehaviour {
         if (moveState != MoveState.FollowMouse)
         {
             moveState = MoveState.PickingUp;
-            if (slot)
-            {
-                slot.GetComponent<Collider>().enabled = true;
-            }
+            controller.pickedTeabag = this;
             Debug.Log("Picked up bag");
         }
     }
 
-    const string mugTag = "MugSlot";
-
-    GameObject slot;
+    bool readyToDrop = false;
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Entered collision");
-
-        if (collision.collider.CompareTag(mugTag))
+        if (collision.collider.gameObject == controller.workingMug.gameObject)
         {
-            Debug.Log("Colliding with a slot");
-
-            slot = collision.collider.gameObject;
+            Debug.Log("Entered collision with working mug");
+            readyToDrop = true;
         }
     }
 
     void OnCollisionExit(Collision collision)
     {
-        Debug.Log("Left collision");
-
-        if (collision.collider.gameObject == slot)
+        if (collision.collider.gameObject == controller.workingMug.gameObject)
         {
-            Debug.Log("Stopped colliding with a slot");
-            slot = null;
+            Debug.Log("Left collision with working mug");
+            readyToDrop = false;
         }
     }
 }

@@ -4623,3 +4623,4 @@ MonoBehaviour:
   workingMug: {fileID: 0}
   workingMugSlot: {fileID: 832713551}
   kettle: {fileID: 1665977706}
+  pickedTeabag: {fileID: 0}

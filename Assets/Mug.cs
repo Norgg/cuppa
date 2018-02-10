@@ -6,6 +6,8 @@ public class Mug : MonoBehaviour {
 
     Controller controller;
 
+    public bool hasTeabag = false;
+
 	// Use this for initialization
 	void Start () {
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<Controller>();
@@ -72,6 +74,7 @@ public class Mug : MonoBehaviour {
     void OnMouseDown()
     {
         if (controller.pickedMug != null) return;
+        if (controller.pickedTeabag != null) return;
 
         if (moveState != MoveState.FollowMouse)
         {
