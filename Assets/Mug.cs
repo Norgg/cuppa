@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Mug : MonoBehaviour {
 
+    Controller controller;
+
 	// Use this for initialization
 	void Start () {
-
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<Controller>();
 	}
 
     enum MoveState
