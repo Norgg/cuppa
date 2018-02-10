@@ -22,7 +22,18 @@ public class Mug : MonoBehaviour {
 	void Update () {
         if (moveState == MoveState.PickingUp)
         {
-            moveState = MoveState.FollowMouse;
+            var mousePosition = Input.mousePosition;
+            mousePosition.z = 30;
+            var worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            transform.SetPositionAndRotation(
+                Vector3.Lerp(transform.position, worldPosition, 0.2f),
+                transform.rotation);
+
+            if (Vector3.Distance(transform.position, worldPosition) < 0.1f)
+            {
+                moveState = MoveState.FollowMouse;
+            }
         }
         else if (
             moveState == MoveState.MoveToSlot &&
@@ -37,9 +48,7 @@ public class Mug : MonoBehaviour {
         else if (moveState == MoveState.FollowMouse)
         {
             var mousePosition = Input.mousePosition;
-
             mousePosition.z = 30;
-
             var worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
             transform.SetPositionAndRotation(worldPosition, transform.rotation);
