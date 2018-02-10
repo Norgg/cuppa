@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1350c61ee3dfb49a245b1af53f875c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsToBoil: 2
+  secondsToBoil: 45
 --- !u!114 &114677041473623170
 MonoBehaviour:
   m_ObjectHideFlags: 1
