@@ -46,6 +46,11 @@ public class Mug : MonoBehaviour {
                 transform.rotation);
 
             slot.GetComponent<Collider>().enabled = false;
+
+            if (slot == controller.workingMugSlot)
+            {
+                controller.workingMug = this;
+            }
         }
         else if (moveState == MoveState.FollowMouse)
         {
@@ -71,11 +76,19 @@ public class Mug : MonoBehaviour {
         if (moveState != MoveState.FollowMouse)
         {
             controller.pickedMug = this;
+
             moveState = MoveState.PickingUp;
+
             if (slot)
             {
                 slot.GetComponent<Collider>().enabled = true;
+
+                if (slot == controller.workingMugSlot)
+                {
+                    controller.workingMug = null;
+                }
             }
+
             Debug.Log("Picked up mug");
         }
     }
