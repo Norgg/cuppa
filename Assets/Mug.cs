@@ -58,7 +58,7 @@ public class Mug : MonoBehaviour {
             if (Input.GetMouseButtonDown(0) && slot)
             {
                 Debug.Log("Putting mug down");
-
+                controller.pickedMug = null;
                 moveState = MoveState.MoveToSlot;
             }
         }
@@ -66,8 +66,11 @@ public class Mug : MonoBehaviour {
 
     void OnMouseDown()
     {
+        if (controller.pickedMug != null) return;
+
         if (moveState != MoveState.FollowMouse)
         {
+            controller.pickedMug = this;
             moveState = MoveState.PickingUp;
             if (slot)
             {
